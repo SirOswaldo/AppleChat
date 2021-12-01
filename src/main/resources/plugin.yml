@@ -1,0 +1,11 @@
+name: AppleChat
+version: '${project.version}'
+main: org.kayteam.applechat.AppleChat
+api-version: 1.13
+prefix: AppleChat
+softdepend: [ PlaceholderAPI, Vault ]
+authors: [ SirOswaldo ]
+website: https://kayteam.org
+commands:
+  AppleChat:
+    description: Main Command

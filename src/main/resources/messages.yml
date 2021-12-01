@@ -1,0 +1,12 @@
+prefix: '&8[&cApple&fChat&8]'
+noPermission: '%prefix% &cYou do not have permission!'
+emptyArgs: '%prefix% &cThe argument is empty!'
+invalidArgs: '%prefix% &cThe argument &e%argument% &cis invalid!'
+help:
+  - "%prefix% &fHelp"
+  - "-----------------------------"
+  - " /%command% &help - Show the help."
+  - " /%command% &reload - Reload the settings and messages."
+  - " /%command% &version - Show the plugin information."
+  - "-----------------------------"
+reload: '%prefix% &fThe plugin has been reloaded'

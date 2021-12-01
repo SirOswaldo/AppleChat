@@ -1,0 +1,25 @@
+format:
+  default: '%name% : %message%'
+
+permissions:
+  admin: 'applechat.admin'
+  color: 'applechat.color'
+  placeholderapi: 'applechat.placeholderapi'
+
+modules:
+  upper-case:
+    enable: true
+    ignore-permission: 'applechat.uppercase'
+  flood:
+    enable: true
+    ignore-permission: 'applechat.flood'
+    countdown: 3
+    notify-message: "&cYou need wait a &e%seconds% second/s &cto send other message!"
+  words-filter:
+    enable: true
+    ignore-permission: 'applechat.wordsfilter'
+    filter-text: '***'
+    words:
+      - 'fuck'
+      - 'bitch'
+      - 'noob'
