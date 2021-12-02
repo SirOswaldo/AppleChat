@@ -1,5 +1,7 @@
 package org.kayteam.applechat;
 
+import net.milkbowl.vault.chat.Chat;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.kayteam.applechat.commands.AppleChatCommand;
 import org.kayteam.applechat.listeners.AsyncPlayerChatListener;
@@ -18,6 +20,8 @@ public final class AppleChat extends JavaPlugin {
 
     private final ModuleManager moduleManager = new ModuleManager();
 
+    private static Chat chat = null;
+
     private static API API;
     public static API getAPI() {
         return API;
@@ -29,6 +33,7 @@ public final class AppleChat extends JavaPlugin {
         registerCommands();
         registerListeners();
         registerModules();
+        setupChat();
         API = new API(this);
         bStats();
         BrandSender.sendBrandMessage(this, "&a&lEnabled");
@@ -78,6 +83,16 @@ public final class AppleChat extends JavaPlugin {
     private void bStats() {
         int pluginId = 13461;
         Metrics metrics = new Metrics(this, pluginId);
+    }
+
+    private boolean setupChat() {
+        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
+        chat = rsp.getProvider();
+        return chat != null;
+    }
+
+    public static Chat getChat() {
+        return chat;
     }
 
 }

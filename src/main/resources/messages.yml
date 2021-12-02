@@ -1,12 +1,22 @@
-prefix: '&8[&cApple&fChat&8]'
-noPermission: '%prefix% &cYou do not have permission!'
-emptyArgs: '%prefix% &cThe argument is empty!'
-invalidArgs: '%prefix% &cThe argument &e%argument% &cis invalid!'
+prefix: '&cApple&fChat'
+noPermission:
+  - '&e&m>>>       <<<&c %prefix% &e&m>>>       <<<'
+  - '&c    You do not have permission!'
+  - '&e&m>>>                                    <<<'
+emptyArgs:
+  - '&e&m>>>    <<<&c %prefix% &e&m>>>    <<<'
+  - '&c    The argument is empty!'
+  - '&e&m>>>                              <<<'
+invalidArgs:
+  - '&e&m>>>     <<<&c %prefix% &e&m>>>     <<<'
+  - '&c     The argument is invalid!'
+  - '&e&m>>>                                <<<'
 help:
-  - "%prefix% &fHelp"
-  - "-----------------------------"
-  - " /%command% &help - Show the help."
-  - " /%command% &reload - Reload the settings and messages."
-  - " /%command% &version - Show the plugin information."
-  - "-----------------------------"
-reload: '%prefix% &fThe plugin has been reloaded'
+  - '&e&m>>>                     <<<&c %prefix% &e&m>>>                      <<<'
+  - '&c            /%command% &freload &8▶ &aReload plugin'
+  - '&c     /%command% &fversion &8▶ &aShow the plugin information'
+  - '&e&m>>>                                                                 <<<'
+reload:
+  - '&e&m>>>          <<<&c %prefix% &e&m>>>         <<<'
+  - '&a     The plugin has been reloaded!'
+  - '&e&m>>>                                         <<<'

@@ -1,5 +1,11 @@
 format:
-  default: '%name% : %message%'
+  default: '%prefix% &7%name% &8▶ &f%message%'
+
+  vip: '%vault_rankprefix% &e%name% &8▶ &f%message%'
+  helper: '%vault_rankprefix% &b%name% &8▶ &e%message%'
+  mod: '%vault_rankprefix% &b%name% &8▶ &e%message%'
+  admin: '%vault_rankprefix% &b%name% &8▶ &e%message%'
+  owner: '%vault_rankprefix% &b%name% &8▶ &e%message%'
 
 permissions:
   admin: 'applechat.admin'
@@ -14,7 +20,10 @@ modules:
     enable: true
     ignore-permission: 'applechat.flood'
     countdown: 3
-    notify-message: "&cYou need wait a &e%seconds% second/s &cto send other message!"
+    notify-message:
+      - '&e&m>>>                       <<<&c &cApple&fChat &e&m>>>                        <<<'
+      - '&c     You need wait a &e%seconds% second/s &cto send other message!'
+      - '&e&m>>>                                                                     <<<'
   words-filter:
     enable: true
     ignore-permission: 'applechat.wordsfilter'

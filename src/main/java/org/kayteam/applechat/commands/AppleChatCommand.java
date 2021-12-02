@@ -6,6 +6,9 @@ import org.kayteam.applechat.AppleChat;
 import org.kayteam.applechat.util.command.SimpleCommand;
 import org.kayteam.applechat.util.yaml.Yaml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AppleChatCommand extends SimpleCommand {
 
     private final AppleChat appleChat;
@@ -30,14 +33,8 @@ public class AppleChatCommand extends SimpleCommand {
                         messages.sendMessage(sender, "reload");
                         break;
                     }
-                    case "version":{
-                        Yaml.sendSimpleMessage(sender, "&8[&cApple&fChat&8] &fInformation");
-                        Yaml.sendSimpleMessage(sender, "&c Version &f" + appleChat.getDescription().getVersion());
-                        Yaml.sendSimpleMessage(sender, "&c Website &f" + appleChat.getDescription().getWebsite());
-                        break;
-                    }
                     default:{
-                        messages.sendMessage(sender, "invalidArgs", new String[][]{{"%argument%", args[0]}});
+                        messages.sendMessage(sender, "invalidArgs");
                     }
                 }
             } else {
@@ -46,6 +43,18 @@ public class AppleChatCommand extends SimpleCommand {
         } else {
             messages.sendMessage(sender, "noPermission");
         }
+    }
+
+    @Override
+    public List<String> onPlayerTabComplete(Player sender, String[] args) {
+        List<String> result = new ArrayList<>();
+        if (sender.hasPermission(appleChat.getSettings().getString("permissions.admin"))) {
+            if (args.length == 1) {
+                result.add("help");
+                result.add("reload");
+            }
+        }
+        return result;
     }
 
     @Override
@@ -62,14 +71,8 @@ public class AppleChatCommand extends SimpleCommand {
                     messages.sendMessage(sender, "reload");
                     break;
                 }
-                case "version":{
-                    Yaml.sendSimpleMessage(sender, "&8[&cApple&fChat&8] &fInformation");
-                    Yaml.sendSimpleMessage(sender, "&c Version &f" + appleChat.getDescription().getVersion());
-                    Yaml.sendSimpleMessage(sender, "&c Website &f" + appleChat.getDescription().getWebsite());
-                    break;
-                }
                 default:{
-                    messages.sendMessage(sender, "invalidArgs", new String[][]{{"%argument%", args[0]}});
+                    messages.sendMessage(sender, "invalidArgs");
                 }
             }
         } else {
@@ -77,4 +80,13 @@ public class AppleChatCommand extends SimpleCommand {
         }
     }
 
+    @Override
+    public List<String> onConsoleTabComplete(ConsoleCommandSender sender, String[] args) {
+        List<String> result = new ArrayList<>();
+        if (args.length == 1) {
+            result.add("help");
+            result.add("reload");
+        }
+        return result;
+    }
 }

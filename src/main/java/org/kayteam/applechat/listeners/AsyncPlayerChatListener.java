@@ -49,6 +49,15 @@ public class AsyncPlayerChatListener implements Listener {
         }
 
         String format = appleChat.getSettings().getString("format.default");
+        if (AppleChat.getChat() != null) {
+            String group = AppleChat.getChat().getPrimaryGroup(sender);
+            if (appleChat.getSettings().contains("format." + group)) {
+                format = appleChat.getSettings().getString("format." + group);
+            }
+            format = format.replaceAll("%prefix%", ChatColor.translateAlternateColorCodes('&', AppleChat.getChat().getPlayerPrefix(sender)));
+            format = format.replaceAll("%suffix%", ChatColor.translateAlternateColorCodes('&', AppleChat.getChat().getPlayerSuffix(sender)));
+        }
+
         format = ChatColor.translateAlternateColorCodes('&', format);
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) format = PlaceholderAPI.setPlaceholders(sender, format);
         format = format.replaceAll("%name%", sender.getName());
